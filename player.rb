@@ -1,9 +1,13 @@
 include Math
 
 class Player < Sprite
-    def initialize(hp,dir)
+    def initialize(hp,x,y,center_x,center_y)
         @hp = hp
-        @dir = dir  #radian
+        @dir = 0 
+        self.x = x
+        self.y = y
+        self.center_x = center_x
+        self.center_y = center_y
     end
     
     def change_dir()
@@ -12,10 +16,10 @@ class Player < Sprite
     end
     
     def make_bullet(bullet)
-        bullet.d = @dir
+        bullet.r = @dir
     end
     
     def hit(enemy)
-        self.check(enemy)
+        Sprite.check(self,enemy)
     end
 end
