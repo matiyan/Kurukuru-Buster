@@ -1,9 +1,9 @@
-#encoding:utf-8
+
 
 require 'dxopal'
 include DXOpal
 
-#require_remote 'hoge.rb'
+require_remote 'show_displays.rb'
 
 #Image.register(:player, 'images/player.png')
 
