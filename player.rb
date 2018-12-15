@@ -29,7 +29,7 @@ class Player < Sprite
     
     #弾の生成
     def make_bullet()
-        Bullet.new(@dir,3,1,Image[:img_bullet])
+        Bullet.new(Image[:img_bullet],@dir,3,1,)
     end
     
     #弾の当たり判定

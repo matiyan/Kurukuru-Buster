@@ -1,7 +1,7 @@
 class GameSystem
     def initialize 
         
-        @player = Player.new( Window.width / 2, Window.height / 2, Image[:img_player] , Window.width / 2, Window.height / 2,1)
+        @player = Player.new( Window.width / 2 - 100, Window.height / 2, Image[:img_player] , Window.width / 2, Window.height / 2,1)
         @enemies = []
         10.times {
             @enemies << Enemy.new(rand(0, Window.width), rand(0, Window.height), Image[:img_enemy])
@@ -12,7 +12,7 @@ class GameSystem
     
     def update
         @player.change_dir  # 自機がどこを向いているか
-        
+        @player.update
         # 弾の生成(弾速はひとまず固定)        
         if @time % 60 == 0 then
             @bullets << @player.make_bullet            
@@ -32,6 +32,6 @@ class GameSystem
     
     # 画面描画
     def draw
-        
+        Window.draw(0,0,Image[:img_background])
     end
 end
