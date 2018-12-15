@@ -9,7 +9,12 @@ require_remote 'player.rb'
 require_remote 'bullet.rb'
 require_remote 'game_system.rb'
 
-#Image.register(:player, 'images/player.png')
+#Image.register(:img_background, 'images/background.png')
+#Image.register(:img_title_background, 'images/title_background.png')
+#Image.register(:img_bullet, 'image/bullet.png')
+#Image.register(:img_effect, 'images/effect.png')
+#Image.register(:img_enemy, 'images/enemy.png')
+#Image.register(:img_player, 'images/player.png')
 
 
 Window.load_resources do
@@ -18,7 +23,7 @@ Window.load_resources do
     Window.height = 480
     
     display = :title
-    ame = new GameSystem
+    game = GameSystem.new
 
     Window.loop do        
         display = case display
