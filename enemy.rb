@@ -9,16 +9,20 @@ class Enemy < Sprite
         @x = x
         @y = y
         
-        #座標
+        #座標タイプA
         #@esize = 50 #大体の画像サイズ
-        #@winsze = 500 #大体のウィンドウサイズ
+        #@winsize = 500 #大体のウィンドウサイズ
         #if rand(0,1)==0 then #右か左
         #    @x = rand(0,1)*@winsize-@esize
         #    @y = rand(0,@wnsize)-@esize
         #else #上か下
-        #    @x = rand(0,@wnsize)-@esize
+        #    @x = rand(0,@winsize)-@esize
         #    @y = rand(0,1)*@winsize-@esize
         #end
+        
+        #座標タイプB
+        #@x = rand(0,@winsize)
+        #@y = rand(0,@winsize)
         
         #表示
         self.draw
