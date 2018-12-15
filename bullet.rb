@@ -20,7 +20,7 @@ class Bullet < Sprite
   end
 
   # 他のオブジェクトから衝突された際に呼ばれるメソッド
-  def hit
+  def shot
     self.vanish
   end
 end

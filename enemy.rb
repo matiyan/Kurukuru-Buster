@@ -31,15 +31,16 @@ class Enemy < Sprite
         @ey += (sin(rad)*@ev)
     end
     
-    def hit(bullet)
-        if Sprite.check(self,bullet) then
-            if @eh == 0 then
-                100
-            else
-                0
-            end
-        else
-            0
+    #自機に当たったとき
+    def shot()
+        self.vanish
+    end
+    
+    #弾に当たったとき
+    def hit()
+        @eh-=1
+        if @eh<=0 then
+            self.vanish
         end
     end
     
