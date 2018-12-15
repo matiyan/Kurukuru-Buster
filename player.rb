@@ -2,15 +2,13 @@ include Math
 
 
 class Player < Sprite
-    def initialize(x,y,img,center_x,center_y,hp)
+    def initialize(x, y, img, hp)
         @hp = hp                    #HP
         @dir = 0                    #自機の角度(rad)
         self.image= img             #画像読み込み
         self.x = x                  #x座標
         self.y = y                  #y座標
-        self.center_x = center_x    #真ん中のx座標
-        self.center_y = center_y    #真ん中のy座標
-        super(x,y,img)
+        super(x, y, img)
     end
             
     #更新
@@ -29,7 +27,7 @@ class Player < Sprite
     
     #弾の生成
     def make_bullet()
-        Bullet.new(Image[:img_bullet],@dir,3,1,)
+        Bullet.new(Image[:img_bullet], self.x, self.y, @dir - PI / 2, 10, 1)
     end
     
     #弾の当たり判定
