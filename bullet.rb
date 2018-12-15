@@ -3,15 +3,12 @@ include Math
 
 class Bullet < Sprite
   def initialize(kakudo = PI/4,hayasa = 3,fire = 1,image)
-    p"y"
-    self.x = (Window.width ) / 2 # - score.width
+    self.x = (Window.width - score.width) / 2
     self.y = Window.height / 2
     @r = kakudo #角度
     @s = hayasa #速さ
     @fire = fire #火力
-    p"x"
-    self.image=(image) #画像]
-    p"z"
+    self.image = image #画像
   end
 
   def update
