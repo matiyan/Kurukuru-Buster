@@ -28,6 +28,7 @@ class GameSystem
         # frameを数える
         time += 1
         time %= 60
+        
     end
     
     # 画面描画
