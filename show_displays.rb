@@ -26,9 +26,10 @@ def game_main(game)
     
 end
 
-def result()
+def result(game)
     Window.draw_font(Window.width / 2, Window.height / 2, "result", Font.default, color: C_BLACK)
     Window.draw_font(Window.width / 2, Window.height / 2+40, "Please press Space-Key", Font.default, color: C_BLACK)
+    game.result
 
     if Input.key_push? K_SPACE then :title
     else :result end

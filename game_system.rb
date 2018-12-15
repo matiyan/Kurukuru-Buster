@@ -8,6 +8,8 @@ class GameSystem
         }
         @bullets = []
         @time = 0   # count game-frame
+        
+        @score = Score.new
     end
     
     def update
@@ -21,17 +23,25 @@ class GameSystem
         @enemies.each{|e| e.move(@player.x, @player.y)} # 敵たちの移動
         @bullets.each{|b| b.update} #弾たちの移動
         
-        Sprite.check @bullets, @enemies   # 弾が敵を打ち落とすか
+        if Sprite.check(@bullets,@enemies)#敵配列と弾配列の当たり判定
+        @score.score += 1
+        end
+        #Sprite.check @bullets, @enemies   # 弾が敵を打ち落とすか
         Sprite.check @enemies, @player    # 敵が自機を打ち落とすか 
         
         # frameを数える
         @time += 1
         @time %= 60
         
+        @score.update(0)
     end
     
     # 画面描画
     def draw
         Window.draw(0,0,Image[:img_background])
+    end
+    
+    def result
+      @score.update(1)
     end
 end
