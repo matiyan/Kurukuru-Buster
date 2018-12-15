@@ -19,7 +19,7 @@ class Player < Sprite
         bullet.r = @dir
     end
     
-    def hit(enemy)
-        Sprite.check(self,enemy)
+    def hit()
+        @hp -= 1
     end
 end
