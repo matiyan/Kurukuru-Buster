@@ -7,8 +7,7 @@ class GameSystem
         @bullets = []
         @time = 0   # count game-frame
 
-        @ehoge = Enemy.new(Window.width / 2, 0, Image[:img_enemy])
-        @bhoge = @player.make_bullet
+        @score = Score.new
     end
     
     def update
@@ -23,18 +22,14 @@ class GameSystem
             e.update(@player.x, @player.y)
         }# 敵たちの移動
         
-        p @enemies.count
-        
         @bullets.each{|b| b.update } #弾たちの移動
 
-
-#        @ehoge.move(@player.x, @player.y)
-#        @ehoge.draw
-        
-        #@bhoge.update
-        #@bhoge.draw
-
         Sprite.check @bullets, @enemies   # 弾が敵を打ち落とすか
+
+        if Sprite.check(@bullets,@enemies)#敵配列と弾配列の当たり判定
+            @score.score += 1
+        end
+        #Sprite.check @bullets, @enemies   # 弾が敵を打ち落とすか
         Sprite.check @enemies, @player    # 敵が自機を打ち落とすか 
         
         
@@ -42,10 +37,15 @@ class GameSystem
         @time += 1
         @time %= 60
         
+        @score.update(0)
     end
     
     # 画面描画
     def draw
         Window.draw(0,0,Image[:img_background])
+    end
+    
+    def result
+      @score.update(1)
     end
 end
