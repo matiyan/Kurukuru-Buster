@@ -2,29 +2,27 @@ include Math
 
 class Enemy < Sprite
 
-    def initialize(x,y,image)
-        super(x, y, image)
-
-#        self.image= image
+    def initialize(x,y,image, seed)
         @ev = 1.0 #速度
         @eh = 1.0 #体力
- #       @x = x
-  #      @y = y
-        
+
         #座標タイプA
-        #@esize = 50 #大体の画像サイズ
-        #@winsize = 500 #大体のウィンドウサイズ
-        #if rand(0,1)==0 then #右か左
-        #    @x = rand(0,1)*@winsize-@esize
-        #    @y = rand(0,@wnsize)-@esize
-        #else #上か下
-        #    @x = rand(0,@winsize)-@esize
-        #    @y = rand(0,1)*@winsize-@esize
-        #end
-        
+        esize = 50 #大体の画像サイズ
+        winsize = 500 #大体のウィンドウサイズ
+        if rand(0,1) == 0 then #右か左
+            init_x = rand(0,1) * winsize - esize
+            init_y = rand(0, winsize) - esize
+        else #上か下
+            init_x = rand(0, winsize) - esize
+            init_y = rand(0, 1) * winsize - esize
+        end
+
         #座標タイプB
-        #@x = rand(0,@winsize)
-        #@y = rand(0,@winsize)
+        r = Random.new(seed)
+        init_x = r.rand(0..winsize)
+        init_y = r.rand(0..winsize)
+
+        super(init_x, init_y, image)
     end
     
     def update(px,py)
