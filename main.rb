@@ -8,7 +8,7 @@ require_remote 'enemy.rb'
 require_remote 'player.rb'
 require_remote 'bullet.rb'
 require_remote 'game_system.rb'
-
+require_remote 'score.rb'
 
 Image.register(:img_background, 'images/background.png')
 Image.register(:img_title_background, 'images/title_background.png')

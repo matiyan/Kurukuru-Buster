@@ -33,7 +33,7 @@ class GameSystem
         @time += 1
         @time %= 60
         
-        @score.update
+        core.update
     end
     
     # 画面描画
