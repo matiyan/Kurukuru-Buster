@@ -13,8 +13,8 @@ end
 def game_main()
 #    Window.draw_font(Window.width / 2, Window.height / 2, "game main", Font.default, color: C_BLACK)
 
-    state = game.update    
-    game.draw
+    game.update
+    #game.draw
     
 #    if Input.key_push? K_SPACE then :result
 #    else :game_main end
