@@ -3,11 +3,13 @@ include Math
 class Enemy < Sprite
 
     def initialize(x,y,image)
-        self.image= image
+        super(x, y, image)
+
+#        self.image= image
         @ev = 1.0 #速度
         @eh = 1.0 #体力
-        @x = x
-        @y = y
+ #       @x = x
+  #      @y = y
         
         #座標
         #@esize = 50 #大体の画像サイズ
@@ -20,11 +22,9 @@ class Enemy < Sprite
         #    @y = rand(0,1)*@winsize-@esize
         #end
         
-        #表示
-        self.draw
     end
     
-    def move(px,py)
+    def update(px,py)
         w = px - @x #cos
         h = py - @y #sin
         
@@ -50,12 +50,12 @@ class Enemy < Sprite
     end
     
     #自機に当たったとき
-    def shot()
+    def shot
         self.vanish
     end
     
     #弾に当たったとき
-    def hit()
+    def hit
         @eh-=1
         if @eh<=0 then
             self.vanish

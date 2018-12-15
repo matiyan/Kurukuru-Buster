@@ -3,9 +3,7 @@ class GameSystem
         
         @player = Player.new( Window.width / 2 - 100, Window.height / 2, Image[:img_player], 1)
         @enemies = []
-        10.times {
-            @enemies << Enemy.new(rand(0, Window.width), rand(0, Window.height), Image[:img_enemy])
-        }
+                
         @bullets = []
         @time = 0   # count game-frame
 
@@ -21,18 +19,24 @@ class GameSystem
             @bullets << @player.make_bullet            
         end
         
-        @enemies.each{|e| e.move(@player.x, @player.y)} # 敵たちの移動
-        @bullets.each{|b| b.update 
-            Window.draw(b.x, b.y, Image[:img_bullet])
-        } #弾たちの移動
-
-        @ehoge.move(@player.x, @player.y)
-        @ehoge.draw
-        @bhoge.update
-        @bhoge.draw
+        @enemies.each{|e| 
+            e.update(@player.x, @player.y)
+        }# 敵たちの移動
         
+        p @enemies.count
+        
+        @bullets.each{|b| b.update } #弾たちの移動
+
+
+#        @ehoge.move(@player.x, @player.y)
+#        @ehoge.draw
+        
+        #@bhoge.update
+        #@bhoge.draw
+
         Sprite.check @bullets, @enemies   # 弾が敵を打ち落とすか
         Sprite.check @enemies, @player    # 敵が自機を打ち落とすか 
+        
         
         # frameを数える
         @time += 1

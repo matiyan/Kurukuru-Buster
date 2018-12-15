@@ -8,7 +8,9 @@ class Bullet < Sprite
     @r = kakudo #角度
     @s = hayasa #速さ
     @fire = fire #火力
-    self.image=(image) #画像
+#    self.image=(image) #画像
+    
+    super(init_x, init_y, image)
   end
 
   def update
