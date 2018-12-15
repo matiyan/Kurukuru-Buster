@@ -20,6 +20,9 @@ class Player < Sprite
     
     #角度の変更
     def change_dir()
+        if self.angle < 0 
+            self.angle = 360
+        end
         self.angle += Input.x
         @dir = (self.angle / 180) * PI
     end
