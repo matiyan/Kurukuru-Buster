@@ -1,7 +1,8 @@
 # coding: utf-8
+include Math
 
 class Bullet < Sprite
-  def initialize(kakudo = 45,hayasa = 3,fire = 1,image)
+  def initialize(kakudo = PI/4,hayasa = 3,fire = 1,image)
     self.x = (Window.width - score.width) / 2
     self.y = Window.height / 2
     @r = kakudo #角度
