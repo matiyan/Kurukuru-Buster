@@ -9,12 +9,13 @@ require_remote 'player.rb'
 require_remote 'bullet.rb'
 require_remote 'game_system.rb'
 
+
 #Image.register(:img_background, 'images/background.png')
 #Image.register(:img_title_background, 'images/title_background.png')
 #Image.register(:img_bullet, 'image/bullet.png')
 #Image.register(:img_effect, 'images/effect.png')
-#Image.register(:img_enemy, 'images/enemy.png')
-#Image.register(:img_player, 'images/player.png')
+Image.register(:img_enemy, 'images/enemy.png')
+Image.register(:img_player, 'images/player.png')
 
 
 Window.load_resources do
@@ -28,11 +29,14 @@ Window.load_resources do
     game = GameSystem.new
     
     Window.loop do
-        display = case display
-            when :title then title() # show title-display
-            when :game_main then 
-                game_main game #show game-display
-            when :result then result() # show result-display
-        end
+        display = 
+            case display
+                when :title 
+                    title() # show title-display
+                when :game_main 
+                    game_main(game)#show game-display
+                when :result 
+                    result() # show result-display
+            end
     end
 end
