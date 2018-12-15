@@ -36,7 +36,7 @@ Window.load_resources do
                 when :game_main 
                     game_main(game)#show game-display
                 when :result 
-                    result() # show result-display
+                    result(game) # show result-display
             end
     end
 end

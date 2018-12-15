@@ -9,7 +9,7 @@ class GameSystem
         @bullets = []
         @time = 0   # count game-frame
         
-        @score = Score.new #スコア
+        @score = Score.new
     end
     
     def update
@@ -33,11 +33,15 @@ class GameSystem
         @time += 1
         @time %= 60
         
-        core.update
+        @score.update(0)
     end
     
     # 画面描画
     def draw
         
+    end
+    
+    def result
+      @score.update(1)
     end
 end
