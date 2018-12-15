@@ -19,16 +19,19 @@ require_remote 'game_system.rb'
 
 Window.load_resources do
     Window.bgcolor = C_WHITE
-    Window.width  = 640
+    Window.width = 640
     Window.height = 480
     
     display = :title
+    dispaly_prev = :result
+    
     game = GameSystem.new
-
-    Window.loop do        
+    
+    Window.loop do
         display = case display
             when :title then title() # show title-display
-            when :game_main then game_main() # show game-display
+            when :game_main then 
+                game_main game #show game-display
             when :result then result() # show result-display
         end
     end

@@ -1,9 +1,9 @@
 class GameSystem
-    def initialize    
+    def initialize 
         @player = Player.new(1, Window.width / 2, Window.height / 2, Window.width / 2, Window.height / 2)
         @enemies = []
         10.times {
-            @enemies << Enemy.new(rand(0..Window.width), rand(0..Window.height))
+            @enemies << Enemy.new(rand(0, Window.width), rand(0, Window.height))
         }
         @bullets = []
         @time = 0   # count game-frame
