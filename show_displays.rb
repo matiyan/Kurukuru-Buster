@@ -17,7 +17,6 @@ end
 def game_main(game)
 
         Window.draw_font(Window.width / 2, Window.height / 2, "game main", Font.default, color: C_BLACK)
-    
         game.draw
         game.update
         Window.draw_font(Window.width / 2, Window.height / 2+40, "game main2", Font.default, color: C_BLACK)

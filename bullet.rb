@@ -3,7 +3,7 @@ include Math
 
 class Bullet < Sprite
   def initialize(kakudo = PI/4,hayasa = 3,fire = 1,image)
-    self.x = (Window.width - score.width) / 2
+    self.x = (Window.width ) / 2    #- score.width
     self.y = Window.height / 2
     @r = kakudo #角度
     @s = hayasa #速さ
