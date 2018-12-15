@@ -12,15 +12,14 @@ class GameSystem
     
     def update
         @player.change_dir  # 自機がどこを向いているか
-        p "a"
+        
         # 弾の生成(弾速はひとまず固定)        
         if @time % 60 == 0 then
             @bullets << @player.make_bullet            
         end
-        p "c"
+        
         @enemies.each{|e| e.move(@player.x, @player.y)} # 敵たちの移動
         @bullets.each{|b| b.update} #弾たちの移動
-        p "b"
         
         Sprite.check @bullets, @enemies   # 弾が敵を打ち落とすか
         Sprite.check @enemies, @player    # 敵が自機を打ち落とすか 
