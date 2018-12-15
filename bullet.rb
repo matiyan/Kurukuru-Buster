@@ -1,13 +1,13 @@
 # coding: utf-8
 
 class Bullet < Sprite
-  def initialize(kakudo = 45,hayasa = 3,fire = 1)
+  def initialize(kakudo = 45,hayasa = 3,fire = 1,image)
     self.x = (Window.width - score.width) / 2
     self.y = Window.height / 2
     self.r = kakudo #角度
     self.s = hayasa #速さ
     self.fire = fire #火力
-    self.image = Image.load('images/bullet.png')#画像
+    self.image = image #画像
   end
 
   def update
