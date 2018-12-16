@@ -30,11 +30,14 @@ class GameSystem
 
         @flag2 = false
         #@flag2 = Sprite.check @bullets, @enemies
-                if @bullets === @enemies then
+        @bullets.each{|b|
+                if b === @enemies then
                 #@score.@score += 1
                 #p scorehaittenai
                 Window.draw_font(500,300,"true!!!!!!",Font.default, color: C_BLACK) #score:#{@score}
-                end  
+                end
+            }
+
         Sprite.check @bullets, @enemies  # 弾が敵を打ち落とすか
         Sprite.check @enemies, @player    # 敵が自機を打ち落とすか 
         
