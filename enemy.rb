@@ -23,6 +23,7 @@ class Enemy < Sprite
         init_y = r.rand(0..winsize)
 
         super(init_x, init_y, image)
+        self.collision = [22,23,20] #当たり判定
     end
     
     def update(px,py)

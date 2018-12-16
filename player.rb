@@ -2,13 +2,14 @@ include Math
 
 
 class Player < Sprite
-    def initialize(x, y, img, hp)
+    def initialize(x, y, image, hp)
         @hp = hp                    #HP
         @dir = 0                    #自機の角度(rad)
-        self.image= img             #画像読み込み
+        self.image= image             #画像読み込み
         self.x = x                  #x座標
         self.y = y                  #y座標
-        super(x, y, img)
+        super(x, y, image)
+        self.collision = [25,25,20] #当たり判定
     end
             
     #更新

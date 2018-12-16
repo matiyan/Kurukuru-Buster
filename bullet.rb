@@ -11,6 +11,7 @@ class Bullet < Sprite
 #    self.image=(image) #画像
     
     super(init_x, init_y, image)
+    self.collision = [16,16,18] #当たり判定
   end
 
   def update
@@ -29,5 +30,7 @@ class Bullet < Sprite
   # 他のオブジェクトに衝突した際に呼ばれるメソッド
   def shot
     self.vanish
+    Window.draw_font(500,200,"hit!!",Font.default, color: C_BLACK)
+    #p tamabutukatta
   end
 end

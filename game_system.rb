@@ -24,18 +24,18 @@ class GameSystem
             @enemies << Enemy.new(0, 0, Image[:img_enemy], Time.new.sec + @time)            
         end
 
-        @enemies.each{|e| 
-            e.update(@player.x, @player.y)
-        }# 敵たちの移動
+        @enemies.each{|e| e.update(@player.x, @player.y) }# 敵たちの移動
         
         @bullets.each{|b| b.update } #弾たちの移動
 
-        Sprite.check @bullets, @enemies   # 弾が敵を打ち落とすか
-
-        if Sprite.check(@bullets, @enemies)#敵配列と弾配列の当たり判定
-            @score.score += 1
-        end
-        #Sprite.check @bullets, @enemies   # 弾が敵を打ち落とすか
+        @flag2 = false
+        #@flag2 = Sprite.check @bullets, @enemies
+                if @bullets === @enemies then
+                #@score.@score += 1
+                #p scorehaittenai
+                Window.draw_font(500,300,"true!!!!!!",Font.default, color: C_BLACK) #score:#{@score}
+                end  
+        Sprite.check @bullets, @enemies  # 弾が敵を打ち落とすか
         Sprite.check @enemies, @player    # 敵が自機を打ち落とすか 
         
         
@@ -48,6 +48,7 @@ class GameSystem
     
     # 画面描画
     def draw
+        Sprite.clean(@enemies,@bullets)
         Window.draw(0,0,Image[:img_background])
     end
     
