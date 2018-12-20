@@ -32,7 +32,7 @@ class GameSystem
         #@flag2 = Sprite.check @bullets, @enemies
         @bullets.each{|b|
                 if b === @enemies then
-                #@score.@score += 1
+                @score.re
                 #p scorehaittenai
                 Window.draw_font(500,300,"true!!!!!!",Font.default, color: C_BLACK) #score:#{@score}
                 end

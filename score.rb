@@ -4,6 +4,10 @@ class Score
     #@font = Font.new(30)  #font
   end
   
+  def re
+    @score += 1
+  end
+  
   def update(flag)
     if flag == 0
     Window.draw_font(500,100,"score:#{@score}",Font.default, color: C_BLACK)
