@@ -4,6 +4,7 @@
 
 def title()
     Window.draw(0,0,Image[:img_title_background])
+    
     #Window.draw_font(Window.width / 2, Window.height / 2, "Title", Font.default, color: C_BLACK)
     Window.draw_font(80, Window.height / 2 + 40, "スペースを押してね", Font.default, color: C_BLACK)
     
