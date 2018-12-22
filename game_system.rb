@@ -29,7 +29,7 @@ class GameSystem
         # 敵の生成(弾速はひとまず固定)        
         if @time % (60-@point) == 0 then
             if @enemies.length <= 10 then
-                @enemies << Enemy.new(0, 0, Image[:img_enemy], Time.new.sec + @time)
+                @enemies << Enemy.new(0, 0, Image[:img_enemy], Time.new.sec + @time, @point)
             end
         end
 
@@ -64,7 +64,7 @@ class GameSystem
         end
         
         @level = @player.get_hp
-        @level = (10 - @level)
+        @level = ((10 - @level)/1.5).to_i
         
         @score.update(0)
     end

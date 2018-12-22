@@ -2,12 +2,18 @@ include Math
 
 class Enemy < Sprite
 
-    def initialize(x,y,image, seed)
-        @ev = 1.0 #速度
+    def initialize(x,y,image, seed, point)
+    
+        r = Random.new(seed)
+        
+        @ev = r.rand(1..3) #速度
         @eh = 1.0 #体力
 
-        r = Random.new(seed)
-
+        if point > 30
+            @ev = r.rand(1..5) #速度
+        end
+        
+        
         #座標タイプA
         esize = 50 #大体の画像サイズ
         winsize = 500 #大体のウィンドウサイズ
