@@ -63,14 +63,10 @@ class GameSystem
             @point = @score.get_score
         end
         
-<<<<<<< HEAD
-        @score.update
-=======
         @level = @player.get_hp
         @level = (10 - @level)
         
         @score.update(0)
->>>>>>> refs/heads/master
     end
     
     # 画面描画
