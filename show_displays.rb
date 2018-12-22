@@ -30,7 +30,7 @@ end
 def result(score)
     Window.draw(0, 0, Image[:img_score_background])
     #Window.draw_font(Window.width / 2, Window.height / 2, "result", Font.default, color: C_BLACK)
-    Window.draw_font(Window.width / 2, Window.height / 2+40, "Please press Space-Key", Font.default, color: C_BLACK)
+    Window.draw_font(200,400, "スペースキーでタイトルに戻ります", Font.default, color: C_BLACK)
     Window.draw_font(250,200,"score:#{score*100}",Font.default, color: C_BLACK)
 
     if Input.key_push? K_SPACE then :title
