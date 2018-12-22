@@ -30,7 +30,6 @@ class Bullet < Sprite
   # 他のオブジェクトに衝突した際に呼ばれるメソッド
   def shot
     self.vanish
-    Window.draw_font(500,200,"hit!!",Font.default, color: C_BLACK)
-    #p tamabutukatta
+    #Window.draw_font(500,200,"hit!!",Font.default, color: C_BLACK)
   end
 end

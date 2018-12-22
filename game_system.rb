@@ -1,11 +1,9 @@
 class GameSystem
     def initialize 
         
-        @player = Player.new( Window.width / 2 - 100, Window.height / 2, Image[:img_player], 1)
+        @player = Player.new( Window.width / 2 - 100, Window.height / 2, Image[:img_player], 10)
         @enemies = []
-        @effects = []
-		@img_effects = Image[:img_effect].slice_tiles(5, 1)
-		
+		@effects_enemy_bomb = Effects.new Image[:img_effect].slice_tiles(5, 1)
         @bullets = []
         @time = 0   # count game-frame
 
@@ -46,8 +44,12 @@ class GameSystem
             }
 
         Sprite.check @bullets, @enemies  # 弾が敵を打ち落とすか
-        Sprite.check @enemies, @player    # 敵が自機を打ち落とすか 
-        
+        Sprite.check @enemies, @player    # 敵が自機を打ち落とすか
+		
+		#テキの爆破エフェクト管理
+        @enemies.select{|e| e.vanished? }.each{|e| @effects_enemy_bomb.add e.x, e.y }
+		@effects_enemy_bomb.update
+
 		@bullets = @bullets.reject{ |b| b.nil? || b.vanished? }
 		@enemies = @enemies.reject{ |e| e.nil? || e.vanished? }
         
@@ -65,7 +67,7 @@ class GameSystem
     # 画面描画
     def draw
         Sprite.clean(@enemies,@bullets)
-        Window.draw(0,0,Image[:img_background])
+        Window.draw(0, 0, Image[:img_background])
     end
     
     def result

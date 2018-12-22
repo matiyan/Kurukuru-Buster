@@ -14,7 +14,9 @@ class Player < Sprite
             
     #更新
     def update()
+        Window.draw_font(500,200,"LIFE:#{@hp}",Font.default, color: C_BLACK)
         self.draw
+        
     end
     
     #角度の変更

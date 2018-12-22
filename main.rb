@@ -9,6 +9,8 @@ require_remote 'player.rb'
 require_remote 'bullet.rb'
 require_remote 'game_system.rb'
 require_remote 'score.rb'
+require_remote 'effect.rb'
+require_remote 'effects.rb'
 
 Image.register(:img_background, 'images/background.png')
 Image.register(:img_title_background, 'images/title_background.png')
