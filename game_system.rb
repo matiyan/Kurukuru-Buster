@@ -3,8 +3,8 @@ class GameSystem
         
         @player = Player.new( Window.width / 2 - 100, Window.height / 2, Image[:img_player], 10)
         @enemies = []
-        @effects = []
-		@img_effects = Image[:img_effect].slice_tiles(5, 1)
+#        @effects = []
+#		@img_effects = Image[:img_effect].slice_tiles(5, 1)
 		
         @bullets = []
         @time = 0   # count game-frame
