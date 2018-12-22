@@ -20,11 +20,11 @@ class Player < Sprite
     end
     
     #角度の変更
-    def change_dir()
+    def change_dir(level)
         if self.angle < 0 
             self.angle = 360
         end
-        self.angle += Input.x * 2
+        self.angle += Input.x * (level+2)
         @dir = (self.angle / 180) * PI
     end
     
@@ -37,4 +37,9 @@ class Player < Sprite
     def hit()
         @hp -= 1
     end
+    
+    def get_hp
+        return @hp
+    end
+    
 end

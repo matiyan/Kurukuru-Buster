@@ -18,11 +18,11 @@ class GameSystem
     end
     
     def update
-        @player.change_dir  # 自機がどこを向いているか
+        @player.change_dir(@level)  # 自機がどこを向いているか
         @player.update
         
         # 弾の生成(弾速はひとまず固定)        
-        if @time % 15 == 0 then
+        if @time % (15-@level) == 0 then
             @bullets << @player.make_bullet            
         end
         
@@ -63,7 +63,14 @@ class GameSystem
             @point = @score.get_score
         end
         
+<<<<<<< HEAD
         @score.update
+=======
+        @level = @player.get_hp
+        @level = (10 - @level)
+        
+        @score.update(0)
+>>>>>>> refs/heads/master
     end
     
     # 画面描画

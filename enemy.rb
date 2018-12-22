@@ -27,11 +27,11 @@ class Enemy < Sprite
         super(init_x, init_y, image)
         self.collision = [22,23,20] #当たり判定
     end
-    
+
     def update(px,py)
         w = px - @x #cos
         h = py - @y #sin
-        
+
         #y軸が違うとき
         if w != 0 then
             t_work = h / w #tan
@@ -48,16 +48,16 @@ class Enemy < Sprite
         end
         @x += (cos(rad)*@ev)
         @y += (sin(rad)*@ev)
-        
+
         #表示
         self.draw
     end
-    
+
     #自機に当たったとき
     def shot
         self.vanish
     end
-    
+
     #弾に当たったとき
     def hit
         @eh-=1
@@ -65,5 +65,5 @@ class Enemy < Sprite
             self.vanish
         end
     end
-    
+
 end
