@@ -75,11 +75,8 @@ class GameSystem
         Window.draw(0, 0, Image[:img_background])
     end
     
-<<<<<<< HEAD
-=======
     def result
       Window.draw(0,0,Image[:img_score_background])
       @score.update(1)
     end
->>>>>>> refs/heads/asano
 end
