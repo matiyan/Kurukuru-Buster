@@ -17,6 +17,10 @@ class GameSystem
         return @score.get_score
     end
     
+    def hp
+        return @player.get_hp
+    end
+    
     def update
         @player.change_dir(@level)  # 自機がどこを向いているか
         @player.update
