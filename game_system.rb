@@ -63,12 +63,12 @@ class GameSystem
         @time += 1
         @time %= 60
         
-        if @point < 59 then
+        if @point < 50 then
             @point = @score.get_score
         end
         
         @level = @player.get_hp
-        @level = ((10 - @level)/1.5).to_i
+        @level = ((14 - @level)/1.5).to_i
         
         @score.update(0)
     end
