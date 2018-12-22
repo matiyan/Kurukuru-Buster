@@ -9,6 +9,9 @@ class GameSystem
         @bullets = []
         @time = 0   # count game-frame
 
+        @level = 0
+        @point = 0
+
         @score = Score.new
     end
     
@@ -17,13 +20,15 @@ class GameSystem
         @player.update
         
         # 弾の生成(弾速はひとまず固定)        
-        if @time % 30 == 0 then
+        if @time % 15 == 0 then
             @bullets << @player.make_bullet            
         end
         
         # 敵の生成(弾速はひとまず固定)        
-        if @time % 30 == 0 then
-            @enemies << Enemy.new(0, 0, Image[:img_enemy], Time.new.sec + @time)            
+        if @time % (60-@point) == 0 then
+            if @enemies.length <= 10 then
+                @enemies << Enemy.new(0, 0, Image[:img_enemy], Time.new.sec + @time)
+            end
         end
 
         @enemies.each{|e| e.update(@player.x, @player.y) }# 敵たちの移動
@@ -49,6 +54,10 @@ class GameSystem
         # frameを数える
         @time += 1
         @time %= 60
+        
+        if @point < 59 then
+            @point = @score.get_score
+        end
         
         @score.update(0)
     end

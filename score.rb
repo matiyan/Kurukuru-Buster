@@ -4,6 +4,10 @@ class Score
     #@font = Font.new(30)  #font
   end
   
+  def get_score
+    @score
+  end
+  
   def re
     @score += 1
   end

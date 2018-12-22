@@ -22,7 +22,7 @@ class Player < Sprite
         if self.angle < 0 
             self.angle = 360
         end
-        self.angle += Input.x
+        self.angle += Input.x * 2
         @dir = (self.angle / 180) * PI
     end
     

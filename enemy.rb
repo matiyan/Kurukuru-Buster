@@ -6,21 +6,23 @@ class Enemy < Sprite
         @ev = 1.0 #速度
         @eh = 1.0 #体力
 
+        r = Random.new(seed)
+
         #座標タイプA
         esize = 50 #大体の画像サイズ
         winsize = 500 #大体のウィンドウサイズ
-        if rand(0,1) == 0 then #右か左
-            init_x = rand(0,1) * winsize - esize
-            init_y = rand(0, winsize) - esize
+        if r.rand(0..1) == 0 then #右か左
+            init_x = r.rand(0..1) * winsize - esize
+            init_y = r.rand(0..winsize) - esize
         else #上か下
-            init_x = rand(0, winsize) - esize
-            init_y = rand(0, 1) * winsize - esize
+            init_x = r.rand(0..winsize) - esize
+            init_y = r.rand(0..1) * winsize - esize
         end
 
         #座標タイプB
-        r = Random.new(seed)
-        init_x = r.rand(0..winsize)
-        init_y = r.rand(0..winsize)
+        #r = Random.new(seed)
+        #init_x = r.rand(0..winsize)
+        #init_y = r.rand(0..winsize)
 
         super(init_x, init_y, image)
         self.collision = [22,23,20] #当たり判定
