@@ -12,12 +12,7 @@ class Score
     @score += 1
   end
   
-  def update(flag)
-    if flag == 0
-    Window.draw_font(500,100,"score:#{@score}",Font.default, color: C_BLACK)
-    end
-    if flag == 1
-    Window.draw_font(Window.width / 2,Window.height / 2 - 40,"score:#{@score}",Font.default, color: C_BLACK)
-    end
+  def update
+    Window.draw_font(500,100,"score:#{@score*100}",Font.default, color: C_BLACK)
   end
 end

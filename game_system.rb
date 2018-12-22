@@ -13,19 +13,27 @@ class GameSystem
         @score = Score.new
     end
     
+    def score
+        return @score.get_score
+    end
+    
+    def hp
+        return @player.get_hp
+    end
+    
     def update
-        @player.change_dir  # 自機がどこを向いているか
+        @player.change_dir(@level)  # 自機がどこを向いているか
         @player.update
         
         # 弾の生成(弾速はひとまず固定)        
-        if @time % 15 == 0 then
+        if @time % (15-@level) == 0 then
             @bullets << @player.make_bullet            
         end
         
         # 敵の生成(弾速はひとまず固定)        
         if @time % (60-@point) == 0 then
             if @enemies.length <= 10 then
-                @enemies << Enemy.new(0, 0, Image[:img_enemy], Time.new.sec + @time)
+                @enemies << Enemy.new(0, 0, Image[:img_enemy], Time.new.sec + @time, @point)
             end
         end
 
@@ -38,8 +46,6 @@ class GameSystem
         @bullets.each{|b|
                 if b === @enemies then
                 @score.re
-                #p scorehaittenai
-                Window.draw_font(500,300,"true!!!!!!",Font.default, color: C_BLACK) #score:#{@score}
                 end
             }
 
@@ -57,9 +63,12 @@ class GameSystem
         @time += 1
         @time %= 60
         
-        if @point < 59 then
+        if @point < 50 then
             @point = @score.get_score
         end
+        
+        @level = @player.get_hp
+        @level = ((14 - @level)/1.5).to_i
         
         @score.update(0)
     end
@@ -71,6 +80,7 @@ class GameSystem
     end
     
     def result
+      Window.draw(0,0,Image[:img_score_background])
       @score.update(1)
     end
 end
