@@ -2,7 +2,7 @@ include Math
 
 class Enemy < Sprite
 
-    def initialize(x,y,image, seed)
+    def initialize(x, y, image, seed)
         @ev = 1.0 #速度
         @eh = 1.0 #体力
 
@@ -26,9 +26,12 @@ class Enemy < Sprite
 
         super(init_x, init_y, image)
         self.collision = [22,23,20] #当たり判定
+
+        @movetype = EnemyMovement.new(seed)
     end
 
-    def update(px,py)
+    def update px ,py
+=begin
         w = px - @x #cos
         h = py - @y #sin
 
@@ -48,6 +51,8 @@ class Enemy < Sprite
         end
         @x += (cos(rad)*@ev)
         @y += (sin(rad)*@ev)
+=end
+        @x , @y = @movetype.move @x, @y, @ev, px, py
 
         #表示
         self.draw
