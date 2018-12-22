@@ -2,17 +2,17 @@ include Math
 
 class EnemyMovement
     def initialize seed
-        @@movetype = [:straight, :curve] #, :rotation]
+        @movetype = [:straight, :curve] #, :rotation]
 
-        @type = @@movetype[Random.new(seed).rand(0..@@movetype.length)]
+        @type = @movetype[Random.new(seed).rand(@movetype.length)]
     end
 
-    def move! x, y, v, px, py
+    def move x, y, v, px, py
         case @type
         when :straight
-            move_straight! x, y, v, px, py
+            move_straight x, y, v, px, py
         when :curve
-            move_curve! x, y, v, px, py
+            move_curve x, y, v, px, py
         end
     end
 
@@ -39,7 +39,7 @@ class EnemyMovement
         y += (sin(rad) * v)
     end
 
-    def move_straight! x, y, v, px, py
+    def move_straight x, y, v, px, py
         w = px - x #cos
         h = py - y #sin
 
@@ -59,12 +59,11 @@ class EnemyMovement
         end
         x += (cos(rad) * v)
         y += (sin(rad) * v)
+
+        return x, y
     end
 
-    def move_curve! x, y, v, px, py
-        x += v * rand(0..10)
-        y += v * rand(0..10)
-
+    def move_curve x, y, v, px, py
         w = px - x #cos
         h = py - y #sin
 
@@ -82,8 +81,10 @@ class EnemyMovement
         else
             rad = -PI / 2.0
         end
-        x += (cos(rad) * v) + cos(rad + PI / 3.0) * v * (rand(0..1) == 0 ? (-1) : 1)
-        y += (sin(rad) * v) + sin(rad + PI / 3.0) * v * (rand(0..1) == 0 ? (-1) : 1)
+        x += (cos(rad) + cos(rad + (rand(1) == 0 ? (-1) : 1) * PI / 3.0)) * v
+        y += (sin(rad) + sin(rad + (rand(1) == 0 ? (-1) : 1) * PI / 3.0)) * v
+
+        return x, y
     end
 
 end

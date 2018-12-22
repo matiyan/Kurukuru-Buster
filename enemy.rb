@@ -27,7 +27,7 @@ class Enemy < Sprite
         super(init_x, init_y, image)
         self.collision = [22,23,20] #当たり判定
 
-        @movetype = EnemyMovement.new(seed * seed)
+        @movetype = EnemyMovement.new(seed)
     end
 
     def update px ,py
@@ -52,7 +52,7 @@ class Enemy < Sprite
         @x += (cos(rad)*@ev)
         @y += (sin(rad)*@ev)
 =end
-        @movetype.move! @x, @y, @v, px, py
+        @x , @y = @movetype.move @x, @y, @ev, px, py
 
         #表示
         self.draw
