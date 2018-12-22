@@ -31,7 +31,7 @@ Window.load_resources do
 
 #    game = GameSystem.new
 
-    @game = GameSystem.new
+    game = GameSystem.new
 
     Window.loop do
         display =
@@ -45,9 +45,9 @@ Window.load_resources do
                     result(game) # show result-display
 =end
                 when :game_main
-                    game_main(@game,@game.hp)#show game-display
+                    game_main(game, game.hp)#show game-display
                 when :result
-                    result(@game.score) # show result-display
+                    result(game.score) # show result-display
             end
     end
 end
