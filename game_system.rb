@@ -13,6 +13,10 @@ class GameSystem
         @score = Score.new
     end
     
+    def score
+        return @score.get_score
+    end
+    
     def update
         @player.change_dir  # 自機がどこを向いているか
         @player.update
@@ -38,8 +42,6 @@ class GameSystem
         @bullets.each{|b|
                 if b === @enemies then
                 @score.re
-                #p scorehaittenai
-                Window.draw_font(500,300,"true!!!!!!",Font.default, color: C_BLACK) #score:#{@score}
                 end
             }
 
@@ -61,7 +63,7 @@ class GameSystem
             @point = @score.get_score
         end
         
-        @score.update(0)
+        @score.update
     end
     
     # 画面描画
@@ -70,7 +72,4 @@ class GameSystem
         Window.draw(0, 0, Image[:img_background])
     end
     
-    def result
-      @score.update(1)
-    end
 end

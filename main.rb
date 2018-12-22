@@ -18,7 +18,7 @@ Image.register(:img_bullet, 'images/bullet.png')
 Image.register(:img_effect, 'images/effect_animation.png')
 Image.register(:img_enemy, 'images/enemy.png')
 Image.register(:img_player, 'images/player.png')
-
+Image.register(:img_score_background, 'images/score_background.png')
 
 Window.load_resources do
     Window.bgcolor = C_WHITE
@@ -28,7 +28,8 @@ Window.load_resources do
     display = :title
     dispaly_prev = :result
     
-    game = GameSystem.new
+    @game = GameSystem.new
+    
     
     Window.loop do
         display = 
@@ -36,9 +37,9 @@ Window.load_resources do
                 when :title 
                     title() # show title-display
                 when :game_main 
-                    game_main(game)#show game-display
+                    game_main(@game)#show game-display
                 when :result 
-                    result(game) # show result-display
+                    result(@game.score) # show result-display
             end
     end
 end
