@@ -18,10 +18,10 @@ class Bullet < Sprite
     self.draw
     self.x += cos(@r) * @s
     self.y += sin(@r) * @s
-    if self.y >= Window.height || self.y <= 0
+    if self.y >= 480 || self.y <= 0
       self.vanish
     end
-    if self.x >= Window.width || self.x <= 0
+    if self.x >= 480 || self.x <= 0
       self.vanish
     end
     
