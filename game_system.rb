@@ -3,7 +3,9 @@ class GameSystem
         
         @player = Player.new( Window.width / 2 - 100, Window.height / 2, Image[:img_player], 1)
         @enemies = []
-                
+        @effects = []
+		@img_effects = Image[:img_effect].slice_tiles(5, 1)
+		
         @bullets = []
         @time = 0   # count game-frame
 
@@ -41,9 +43,6 @@ class GameSystem
         Sprite.check @bullets, @enemies  # 弾が敵を打ち落とすか
         Sprite.check @enemies, @player    # 敵が自機を打ち落とすか 
         
-#		Sprite.clean(@bullets)
-#		Sprite.clean(@emenies)
-
 		@bullets = @bullets.reject{ |b| b.nil? || b.vanished? }
 		@enemies = @enemies.reject{ |e| e.nil? || e.vanished? }
         

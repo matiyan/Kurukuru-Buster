@@ -13,7 +13,7 @@ require_remote 'score.rb'
 Image.register(:img_background, 'images/background.png')
 Image.register(:img_title_background, 'images/title_background.png')
 Image.register(:img_bullet, 'images/bullet.png')
-#Image.register(:img_effect, 'images/effect.png')
+Image.register(:img_effect, 'images/effect_animation.png')
 Image.register(:img_enemy, 'images/enemy.png')
 Image.register(:img_player, 'images/player.png')
 
