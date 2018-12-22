@@ -27,23 +27,20 @@ Window.load_resources do
     Window.height = 480
 
     display = :title
-    dispaly_prev = :result
-
-#    game = GameSystem.new
+    display_prev = :result
 
     game = GameSystem.new
 
     Window.loop do
+        if display == :title and display_prev == :result
+            game = GameSystem.new
+        end
+        display_prev = display
+
         display =
             case display
                 when :title
                     title() # show title-display
-=begin
-                when :game_main
-                    game_main(game)#show game-display
-                when :result
-                    result(game) # show result-display
-=end
                 when :game_main
                     game_main(game, game.hp)#show game-display
                 when :result
