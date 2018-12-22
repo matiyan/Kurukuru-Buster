@@ -20,7 +20,6 @@ Image.register(:img_enemy, 'images/enemy.png')
 Image.register(:img_player, 'images/player.png')
 Image.register(:img_score_background, 'images/score_background.png')
 
-
 Window.load_resources do
     Window.bgcolor = C_WHITE
     Window.width = 640
@@ -38,7 +37,7 @@ Window.load_resources do
                 when :title 
                     title() # show title-display
                 when :game_main 
-                    game_main(@game)#show game-display
+                    game_main(@game,@game.hp)#show game-display
                 when :result 
                     result(@game.score) # show result-display
             end
