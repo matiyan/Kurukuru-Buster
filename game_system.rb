@@ -1,7 +1,7 @@
 class GameSystem
     def initialize 
         
-        @player = Player.new( Window.width / 2 - 100, Window.height / 2, Image[:img_player], 1)
+        @player = Player.new( Window.width / 2 - 100, Window.height / 2, Image[:img_player], 10)
         @enemies = []
         @effects = []
 		@img_effects = Image[:img_effect].slice_tiles(5, 1)
