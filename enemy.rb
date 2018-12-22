@@ -2,7 +2,7 @@ include Math
 
 class Enemy < Sprite
 
-    def initialize(x,y,image, seed)
+    def initialize(x, y, image, seed)
         @ev = 1.0 #速度
         @eh = 1.0 #体力
 
@@ -26,6 +26,8 @@ class Enemy < Sprite
 
         super(init_x, init_y, image)
         self.collision = [22,23,20] #当たり判定
+
+#        @movetype = 
     end
 
     def update(px,py)
