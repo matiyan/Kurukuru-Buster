@@ -28,32 +28,26 @@ Window.load_resources do
 
     display = :title
     dispaly_prev = :result
-<<<<<<< HEAD
 
-    game = GameSystem.new
+#    game = GameSystem.new
 
-=======
-    
     @game = GameSystem.new
-    
-    
->>>>>>> ae48df4945471eab3072a4fc7eb2589f95bea11c
+
     Window.loop do
         display =
             case display
                 when :title
                     title() # show title-display
-<<<<<<< HEAD
+=begin
                 when :game_main
                     game_main(game)#show game-display
                 when :result
                     result(game) # show result-display
-=======
-                when :game_main 
+=end
+                when :game_main
                     game_main(@game,@game.hp)#show game-display
-                when :result 
+                when :result
                     result(@game.score) # show result-display
->>>>>>> ae48df4945471eab3072a4fc7eb2589f95bea11c
             end
     end
 end
