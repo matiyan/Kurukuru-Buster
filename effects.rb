@@ -5,7 +5,7 @@ class Effects
 	end
 
 	def add x, y
-		@items << Effect.new x, y, @imgs
+		@items << Effect.new(x, y, @imgs)
 	end
 	
 	def update
